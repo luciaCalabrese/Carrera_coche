@@ -26,37 +26,41 @@ class carrera (){
 var coches = arrayOf (coche1,coche2)
 
 fun main() {
+    carreras()
+}
+
+fun carreras() {
     var lamp = 0
     var terminado: Boolean = true
-   while (terminado){
+    while (terminado) {
 
         for (i in 0..list.size - 1) {
-                list[i].velocidad += list[i].acc
-               System.out.println(list[i].velocidad)
+            list[i].velocidad += list[i].acc
+            System.out.println(list[i].velocidad)
 
-               var aleatorio: Int = Random.nextInt(0, 3)
+            var aleatorio: Int = Random.nextInt(0, 3)
 
-                if (aleatorio == 0){
-                    Frenazo(list[i])
-                    if (list.size-1 <= 1){
-                        lamp = 10
-                    }
-                }
-                if (aleatorio == 1){
-                    Averiado(list[i])
-                    if (list.size-1 <= 1){
-                        lamp = 10
-                    }
-                }
-                if (aleatorio == 2){
-                    terminado = false
-                }
-                if (aleatorio == 3){
-                    Aceleracion(list[i])
-
+            if (aleatorio == 0) {
+                Frenazo(list[i])
+                if (list.size - 1 <= 1) {
+                    lamp = 10
                 }
             }
+            if (aleatorio == 1) {
+                Averiado(list[i])
+                if (list.size - 1 <= 1) {
+                    lamp = 10
+                }
+            }
+            if (aleatorio == 2) {
+                terminado = false
+            }
+            if (aleatorio == 3) {
+                Aceleracion(list[i])
+
+            }
         }
+    }
 
 
     System.out.println("------------------")
@@ -65,8 +69,6 @@ fun main() {
     } else {
         System.out.println("coche2 " + coche2.velocidad)
     }
-
-
 }
 
 fun Frenazo(coche: coche): Any {

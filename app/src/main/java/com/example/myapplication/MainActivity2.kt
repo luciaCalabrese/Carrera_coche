@@ -12,7 +12,11 @@ import coche
 
 class MainActivity2 : AppCompatActivity() {
 
+    var coche2 = coche (400,10,20);
+    var coche3 = coche (300,20,20);
+    val list =  mutableListOf<coche>(coche1,coche2,coche3)
     lateinit var coche1: coche
+
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var spinnerdeoperaciones: Spinner
         super.onCreate(savedInstanceState)
