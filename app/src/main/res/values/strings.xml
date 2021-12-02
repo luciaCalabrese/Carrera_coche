@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">carrera_coches</string>
+    <string name="button1">Presentacion</string>
+    <string name="boton2">Carrera</string>
+</resources>
