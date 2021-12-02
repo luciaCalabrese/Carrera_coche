@@ -10,11 +10,7 @@ import android.widget.Toast
 
 class MainActivity4 : AppCompatActivity() {
 
-    private lateinit var buttonPlay: Button
-//    private lateinit var buttonPause: Button
-//    private lateinit var buttonStop: Button
 
-    private lateinit var mediaPlayer: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
