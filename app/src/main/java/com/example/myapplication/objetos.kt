@@ -51,12 +51,7 @@ fun carreras(coche: coche) {
                     Averiado(list[i])
                      }
                 if (aleatorio == 2) {
-                    val handler = android.os.Handler()
-                    handler.postDelayed({
-                        val cambiando = Intent(this, MainActivity4::class.java)
-                        startActivity(cambiando)
-                        System.out.println("hola")
-                    }, 1000)
+
                     if (list.size == 1) {
                         lamp = 10
                     }

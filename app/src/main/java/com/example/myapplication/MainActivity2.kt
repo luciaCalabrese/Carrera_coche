@@ -35,10 +35,10 @@ class MainActivity2 : AppCompatActivity() {
 
         empieza.setOnClickListener {
 
-            val cambiando = Intent(this, MainActivity4::class.java)
+//            val cambiando = Intent(this, MainActivity4::class.java)
             carrera()
 
-            startActivity(cambiando)
+//            startActivity(cambiando)
 
         }
         spinnerdeoperaciones = findViewById(R.id.spinner)
@@ -110,11 +110,11 @@ class MainActivity2 : AppCompatActivity() {
                     }
                     if (aleatorio == 1) {
                         Averiado(list[i])
-                        if (list.size - 1 <= 1) {
-                            lamp = 10
-                        }
+
                     }
                     if (aleatorio == 2) {
+                        val cambiando = Intent(this, MainActivity4::class.java)
+                        startActivity(cambiando)
                         if (list.size == 1) {
                             lamp = 10
                         }

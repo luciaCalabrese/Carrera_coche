@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,7 +18,11 @@ class MainActivity4 : AppCompatActivity() {
 
 
 
-
+        val handler = android.os.Handler()
+        handler.postDelayed({
+            val cambiando = Intent(this, MainActivity2::class.java)
+            startActivity(cambiando)
+        }, 1000)
 
     }
 
