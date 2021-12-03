@@ -6,6 +6,7 @@ import Frenazo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -96,6 +97,7 @@ class MainActivity2 : AppCompatActivity() {
         var lamp = 0
 
 
+
         while (lamp <= 10) {
 
             for (i in 0..list.size - 1) {
@@ -130,11 +132,11 @@ class MainActivity2 : AppCompatActivity() {
         if (coche1.velocidad >= coche2.velocidad && coche1.velocidad >= coche3.velocidad ) {
             System.out.println("El ganador es: coche1 " + coche1.velocidad)
         }
-        if (coche1.velocidad < coche2.velocidad && coche2.velocidad > coche3.velocidad ) {
+        if (coche1.velocidad <= coche2.velocidad && coche2.velocidad >= coche3.velocidad ) {
             System.out.println("El ganador es: coche2 " + coche2.velocidad)
         }
-        if (coche3.velocidad < coche1.velocidad && coche2.velocidad < coche3.velocidad ) {
-            System.out.println("El ganador es coche3" + coche1.velocidad)
+        if (coche3.velocidad >= coche1.velocidad && coche2.velocidad <= coche3.velocidad ) {
+            System.out.println("El ganador es coche3 " + coche3.velocidad)
         }
 
         System.out.println(coche1.velocidad)

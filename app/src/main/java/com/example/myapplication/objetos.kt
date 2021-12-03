@@ -1,3 +1,5 @@
+import android.content.Intent
+import com.example.myapplication.MainActivity4
 import java.util.logging.Handler
 import kotlin.random.Random
 
@@ -47,11 +49,14 @@ fun carreras(coche: coche) {
                 }
                 if (aleatorio == 1) {
                     Averiado(list[i])
-                    if (list.size - 1 <= 1) {
-                        lamp = 10
-                    }
-                }
+                     }
                 if (aleatorio == 2) {
+                    val handler = android.os.Handler()
+                    handler.postDelayed({
+                        val cambiando = Intent(this, MainActivity4::class.java)
+                        startActivity(cambiando)
+                        System.out.println("hola")
+                    }, 1000)
                     if (list.size == 1) {
                         lamp = 10
                     }
