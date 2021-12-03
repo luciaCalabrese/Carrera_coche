@@ -5,6 +5,7 @@ import kotlin.random.Random
 var coche1 = coche (400,10,20);
 var coche2 = coche (300,20,20);
 val list =  mutableListOf<coche>(coche1,coche2)
+
 val Arrayoches = arrayOf(coche1,coche2)
 class coche (var speedMax: Int, val acc: Int, val brake: Int) {
     var velocidad: Int = 0
@@ -26,49 +27,49 @@ class carrera (){
 var coches = arrayOf (coche1,coche2)
 
 fun main() {
-    carreras()
+
+    list.add(coche1)
 }
 
-fun carreras() {
+fun carreras(coche: coche) {
     var lamp = 0
     var terminado: Boolean = true
-    while (terminado) {
+
+    while (lamp <= 10) {
 
         for (i in 0..list.size - 1) {
-            list[i].velocidad += list[i].acc
-            System.out.println(list[i].velocidad)
+            for (i in 0..Arrayoches.size-1) {
+                list[i].velocidad += list[i].acc
+                var aleatorio: Int = Random.nextInt(0, 4)
 
-            var aleatorio: Int = Random.nextInt(0, 3)
-
-            if (aleatorio == 0) {
-                Frenazo(list[i])
-                if (list.size - 1 <= 1) {
-                    lamp = 10
+                if (aleatorio == 0) {
+                    Frenazo(list[i])
                 }
-            }
-            if (aleatorio == 1) {
-                Averiado(list[i])
-                if (list.size - 1 <= 1) {
-                    lamp = 10
+                if (aleatorio == 1) {
+                    Averiado(list[i])
+                    if (list.size - 1 <= 1) {
+                        lamp = 10
+                    }
                 }
-            }
-            if (aleatorio == 2) {
-                terminado = false
-            }
-            if (aleatorio == 3) {
-                Aceleracion(list[i])
-
+                if (aleatorio == 2) {
+                    if (list.size == 1) {
+                        lamp = 10
+                    }
+                }
+                if (aleatorio == 3) {
+                    Aceleracion(list[i])
+                }
             }
         }
+        lamp++
     }
 
 
     System.out.println("------------------")
-    if (coche1.velocidad > coche2.velocidad) {
+    if (coche1.velocidad > coche2.velocidad ) {
         System.out.println("coche1 " + coche1.velocidad)
-    } else {
-        System.out.println("coche2 " + coche2.velocidad)
     }
+
 }
 
 fun Frenazo(coche: coche): Any {
@@ -76,8 +77,9 @@ fun Frenazo(coche: coche): Any {
     return coche.velocidad
 }
 
+
 fun Averiado(coche: coche): Any {
-    if (coche.speedMax >10 ){
+    if (coche.speedMax > 10 ){
         coche.speedMax = coche.speedMax -10
     }
     return coche.speedMax
