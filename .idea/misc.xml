@@ -12,6 +12,11 @@
         <entry key="..\:/Users/Dam lucia/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main3.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dam lucia/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main4.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/Dam lucia/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_presentacion.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/activity_explocion.xml" value="0.11639492753623189" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main4.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_podio.xml" value="0.25" />
       </map>
     </option>
   </component>
@@ -20,5 +25,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="My_Application.app" />
+      </set>
+    </option>
   </component>
 </project>

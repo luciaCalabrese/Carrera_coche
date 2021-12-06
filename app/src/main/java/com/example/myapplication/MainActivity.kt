@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         ferrar.setOnClickListener {
 
-            val cambiando = Intent(this, MainActivity4::class.java)
+            val cambiando = Intent(this, MainActivity3::class.java)
 
             startActivity(cambiando)
 

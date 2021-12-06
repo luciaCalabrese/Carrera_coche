@@ -8,23 +8,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import carreras
+import android.widget.*
 import coche
 import kotlin.random.Random
 
 
-var coche1 = coche(0,0,0)
-var coche2 = coche (400,10,20);
-var coche3 = coche (300,20,20);
+var coche1 = coche("jana",0,0,0)
+var coche2 = coche ("Pepe",400,10,20);
+var coche3 = coche ("Juan",300,20,20);
+val resuladosp = mutableListOf<String>()
+val resulados = mutableListOf<String>()
+val list =  mutableListOf<coche>(coche1,coche2,coche3)
 class MainActivity2 : AppCompatActivity() {
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        var nombres: EditText
+
+
+
         lateinit var spinnerdeoperaciones: Spinner
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -32,15 +35,10 @@ class MainActivity2 : AppCompatActivity() {
 
 
         val empieza=  findViewById<Button>(R.id.empeza)
-
         empieza.setOnClickListener {
-
-//            val cambiando = Intent(this, MainActivity4::class.java)
             carrera()
-
-//            startActivity(cambiando)
-
         }
+
         spinnerdeoperaciones = findViewById(R.id.spinner)
 
         val arrayparaspinner = mutableListOf<String>(
@@ -57,28 +55,31 @@ class MainActivity2 : AppCompatActivity() {
                 this,
                 android.R.layout.simple_spinner_item, arrayparaspinner
             )
+
+            nombres= findViewById(R.id.nombre)
             spinnerdeoperaciones.adapter = adapter
             spinnerdeoperaciones.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
+
                 override fun onItemSelected(
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
                 ) {
                     when (arrayparaspinner[position]) {
                         "Ferrari 458" -> {
-                            coche1 = coche(300, 30, 8 )
+                            coche1 = coche(nombres.text.toString(),300, 30, 8 )
                         }
                         "Mclaren MSO X" -> {
-                            coche1 = coche(250, 40, 2)
+                            coche1 = coche("jana",250, 40, 2)
                         }
                         "Porche CUP" -> {
-                            coche1 = coche(200, 35, 4)
+                            coche1 = coche("jana",200, 35, 4)
                         }
                         "MClaren" -> {
-                            coche1 = coche(400, 50, 1)
+                            coche1 = coche("jana",400, 50, 1)
                         }
                         "MClaren MSO Y" -> {
-                            coche1 = coche(450, 50, 4)
+                            coche1 = coche("jana",450, 50, 4)
                         }
                     }
                 }
@@ -93,16 +94,15 @@ class MainActivity2 : AppCompatActivity() {
 
     }
     fun carrera (){
-        val list =  mutableListOf<coche>(coche1,coche2,coche3)
+
+
         var lamp = 0
 
-
-
         while (lamp <= 10) {
-
             for (i in 0..list.size - 1) {
                 for (i in 0..list.size-1) {
                     list[i].velocidad += list[i].acc
+                    list[i].distance =  list[i].velocidad
                     var aleatorio: Int = Random.nextInt(0, 4)
 
                     if (aleatorio == 0) {
@@ -113,8 +113,8 @@ class MainActivity2 : AppCompatActivity() {
 
                     }
                     if (aleatorio == 2) {
-                        val cambiando = Intent(this, MainActivity4::class.java)
-                        startActivity(cambiando)
+             val explo = Intent(this, explocion::class.java)
+                startActivity(explo)
                         if (list.size == 1) {
                             lamp = 10
                         }
@@ -124,23 +124,56 @@ class MainActivity2 : AppCompatActivity() {
                     }
                 }
             }
+
+            if (coche1.velocidad > coche2.velocidad && coche1.velocidad  > coche3.velocidad){
+                resuladosp.add(coche1.nombre)
+            }
+            if (coche2.velocidad > coche1.velocidad && coche2.velocidad  > coche3.velocidad){
+                resuladosp.add(coche2.nombre)
+            }
+            if (coche3.velocidad > coche1.velocidad && coche3.velocidad  >coche2.velocidad){
+                resuladosp.add(coche3.nombre)
+            }
             lamp++
         }
-
-
-        System.out.println("------------------")
-        if (coche1.velocidad >= coche2.velocidad && coche1.velocidad >= coche3.velocidad ) {
-            System.out.println("El ganador es: coche1 " + coche1.velocidad)
+        if (coche1.velocidad >= coche2.velocidad && coche1.velocidad  >= coche3.velocidad){
+            resulados.add(coche1.nombre)
         }
-        if (coche1.velocidad <= coche2.velocidad && coche2.velocidad >= coche3.velocidad ) {
-            System.out.println("El ganador es: coche2 " + coche2.velocidad)
+        if (coche2.velocidad >= coche1.velocidad && coche2.velocidad  >= coche3.velocidad){
+            resulados.add(coche2.nombre)
         }
-        if (coche3.velocidad >= coche1.velocidad && coche2.velocidad <= coche3.velocidad ) {
-            System.out.println("El ganador es coche3 " + coche3.velocidad)
+        if (coche3.velocidad >= coche1.velocidad && coche3.velocidad  >=coche2.velocidad){
+            resulados.add(coche3.nombre)
+        }
+
+        if (coche1.velocidad > coche2.velocidad && coche1.velocidad  < coche3.velocidad){
+            resulados.add(coche1.nombre)
+        }
+        if (coche2.velocidad > coche1.velocidad && coche2.velocidad  < coche3.velocidad){
+            resulados.add(coche2.nombre)
+        }
+        if (coche3.velocidad > coche1.velocidad && coche3.velocidad  <coche2.velocidad){
+            resulados.add(coche3.nombre)
+        }
+
+        if (coche1.velocidad  <=  coche2.velocidad && coche1.velocidad   <=  coche3.velocidad){
+            resulados.add(coche1.nombre)
+        }
+        if (coche2.velocidad <=  coche1.velocidad && coche2.velocidad   <=  coche3.velocidad){
+            resulados.add(coche2.nombre)
+        }
+        if (coche3.velocidad <=  coche1.velocidad && coche3.velocidad   <= coche2.velocidad){
+            resulados.add(coche3.nombre)
         }
 
         System.out.println(coche1.velocidad)
         System.out.println(coche2.velocidad)
         System.out.println(coche3.velocidad)
+        System.out.println(resulados)
+
+
+
+        val cambiando = Intent(this, podio::class.java)
+        startActivity(cambiando)
     }
 }
