@@ -117,8 +117,8 @@ class MainActivity2 : AppCompatActivity() {
 
                     }
                     if (aleatorio == 2) {
-             val explo = Intent(this, explocion::class.java)
-                startActivity(explo)
+                     val explo = Intent(this, explocion::class.java)
+                        startActivity(explo)
                         if (list.size == 1) {
                             lamp = 10
                         }
