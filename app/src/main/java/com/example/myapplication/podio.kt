@@ -19,8 +19,7 @@ class podio : AppCompatActivity() {
         Compwhap.setOnClickListener {
             val sendIntent = Intent()
             sendIntent.setAction(Intent.ACTION_SEND)
-            //Cambiar por los diferentes resultados
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "Hola, es de prueba")
+                sendIntent.putExtra(Intent.EXTRA_TEXT,"Primer puesto : ${resulados[resulados.size-1]} + Segundo puesto: ${resulados[resulados.size-2]} + Tercer puesto: ${resulados[resulados.size-1]}" )
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
         }

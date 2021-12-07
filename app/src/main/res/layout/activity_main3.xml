@@ -27,7 +27,7 @@
         android:layout_width="312dp"
         android:layout_height="94dp"
         android:fontFamily="sans-serif-black"
-        android:text="Coches disponibles"
+        android:text="@string/t3"
         android:textAlignment="center"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"

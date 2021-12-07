@@ -32,7 +32,11 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-
+        val info=  findViewById<Button>(R.id.empeza)
+        info.setOnClickListener {
+            val cambiandos = Intent(this, MainActivity3::class.java)
+            startActivity(cambiandos)
+        }
 
         val empieza=  findViewById<Button>(R.id.empeza)
         empieza.setOnClickListener {
@@ -67,7 +71,7 @@ class MainActivity2 : AppCompatActivity() {
                 ) {
                     when (arrayparaspinner[position]) {
                         "Ferrari 458" -> {
-                            coche1 = coche(nombres.text.toString(),300, 30, 8 )
+                            coche1 = coche("Juana",300, 30, 8 )
                         }
                         "Mclaren MSO X" -> {
                             coche1 = coche("jana",250, 40, 2)
@@ -166,10 +170,7 @@ class MainActivity2 : AppCompatActivity() {
             resulados.add(coche3.nombre)
         }
 
-        System.out.println(coche1.velocidad)
-        System.out.println(coche2.velocidad)
-        System.out.println(coche3.velocidad)
-        System.out.println(resulados)
+
 
 
 

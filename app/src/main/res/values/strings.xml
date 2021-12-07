@@ -1,5 +1,16 @@
 <resources>
-    <string name="app_name">carrera_coches</string>
+    <string name="app_name">carrera coches</string>
     <string name="button1">Presentacion</string>
     <string name="boton2">Carrera</string>
+    <string name="titulo2">Ingrese el nombre del jugador</string>
+    <string name="Dj">Datos del jugador</string>
+    <string name="cocheD">Elige el coche que deseas</string>
+    <string name="ic">Informacion coches</string>
+    <string name="emp">empezar</string>
+    <string name="t3">Coches disponibles</string>
+    <string name="tP">Podio Final</string>
+    <string name="Comp">Compartir</string>
+    <string name="volv">Volver al inicio</string>
+   
+
 </resources>
